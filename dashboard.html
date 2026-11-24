@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Dashboard | Kingsville Digital Library</title>
+  <style>
+    :root {
+      --maroon: #58101F;
+      --gold: #E8BD55;
+      --cream: #FAF8F3;
+      --white: #FFFFFF;
+      --text: #29252A;
+      --muted: #777078;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--maroon);
+      color: white;
+      padding: 17px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .logout {
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 9px 15px;
+      border-radius: 6px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 35px 6%;
+    }
+
+    .welcome {
+      background: var(--maroon);
+      color: white;
+      border-radius: 15px;
+      padding: 35px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome::after {
+      content: "✦";
+      position: absolute;
+      right: 55px;
+      top: 8px;
+      font-size: 120px;
+      color: rgba(232,189,85,.18);
+    }
+
+    .welcome h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .welcome p {
+      color: #F2E8E9;
+      line-height: 1.6;
+      max-width: 550px;
+    }
+
+    .search-area {
+      margin: 30px 0;
+    }
+
+    .search-area h2 {
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #DDD5D7;
+      border-radius: 8px;
+      font-size: 15px;
+      min-width: 0;
+    }
+
+    .search-box button {
+      background: var(--gold);
+      border: none;
+      padding: 0 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .section {
+      margin-top: 35px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 17px;
+    }
+
+    .section-heading h2 {
+      font-size: 21px;
+      margin: 0;
+    }
+
+    .section-heading a {
+      color: var(--maroon);
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .category {
+      background: white;
+      padding: 22px 12px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid #EEE7E6;
+    }
+
+    .category .symbol {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .category h3 {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .book {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #EEE7E6;
+    }
+
+    .book-cover {
+      height: 165px;
+      display: grid;
+      place-items: center;
+      background: #E9D9D4;
+      color: var(--maroon);
+      font-size: 43px;
+    }
+
+    .book:nth-child(2) .book-cover { background: #E9E1C8; }
+    .book:nth-child(3) .book-cover { background: #D9E4DF; }
+    .book:nth-child(4) .book-cover { background: #DDD9E8; }
+
+    .book-info {
+      padding: 15px;
+    }
+
+    .book-info h3 {
+      font-size: 15px;
+      margin: 0 0 7px;
+    }
+
+    .book-info p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 13px;
+    }
+
+    .book-info button {
+      background: var(--maroon);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 9px 13px;
+      cursor: pointer;
+    }
+
+    .notice {
+      background: #FFF7E4;
+      border-left: 4px solid var(--gold);
+      padding: 15px;
+      margin-top: 35px;
+      border-radius: 5px;
+      font-size: 13px;
+      color: #66552D;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 45px;
+      padding: 25px;
+      background: var(--maroon);
+      color: white;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .categories { grid-template-columns: repeat(3, 1fr); }
+      .book-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      header { padding: 14px 5%; }
+      .brand { font-size: 14px; }
+      .header-right span { display: none; }
+      main { padding: 25px 5%; }
+      .welcome { padding: 25px; }
+      .welcome h1 { font-size: 24px; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .search-box button { padding: 0 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mark">K</div>
+    <div>
+      KINGSVILLE<br>
+      <small style="font-weight:normal;letter-spacing:2px;">DIGITAL LIBRARY</small>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <span>Welcome, Library User</span>
+    <a class="logout" href="login.html">Log Out</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="welcome">
+    <h1>Welcome to Your Library!</h1>
+    <p>
+      Discover knowledge, explore new ideas, and access learning
+      resources anytime, anywhere. Your next great discovery begins here.
+    </p>
+  </section>
+
+  <section class="search-area">
+    <h2>What would you like to read?</h2>
+    <div class="search-box">
+      <input type="search" id="bookSearch"
+        placeholder="Search books, authors, or subjects...">
+      <button onclick="searchBooks()">Search</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Browse Categories</h2>
+      <a href="#" onclick="showNotice(event)">View all</a>
+    </div>
+
+    <div class="categories">
+      <div class="category"><div class="symbol">🔬</div><h3>Science</h3></div>
+      <div class="category"><div class="symbol">➗</div><h3>Mathematics</h3></div>
+      <div class="category"><div class="symbol">📖</div><h3>Literature</h3></div>
+      <div class="category"><div class="symbol">🌍</div><h3>Social Studies</h3></div>
+      <div class="category"><div class="symbol">💻</div><h3>Technology</h3></div>
+      <div class="category"><div class="symbol">🎨</div><h3>Arts</h3></div>
+      <div class="category"><div class="symbol">📚</div><h3>Reference</h3></div>
+      <div class="category"><div class="symbol">📝</div><h3>Education</h3></div>
+      <div class="category"><div class="symbol">🧠</div><h3>Psychology</h3></div>
+      <div class="category"><div class="symbol">✨</div><h3>Others</h3></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Featured Books</h2>
+      <a href="#" onclick="showNotice(event)">Explore collection</a>
+    </div>
+
+    <div class="book-grid" id="bookGrid">
+      <article class="book" data-search="science discovery">
+        <div class="book-cover">🔬</div>
+        <div class="book-info">
+          <h3>Exploring Science</h3>
+          <p>Science Collection</p>
+          <button onclick="showNotice()">View Book</button>
+        </div>
+      </article>
+
+      <article class="book" data-search="mathematics numbers">
+        <div class="book-cover">➗</div>
+        <div class="book-info">
+          <h3>The World of Mathematics</h3>
+          <p>Mathematics Collection</p>
+          <button onclick="showNotice()">View Book</button>
+        </div>
+      </article>
+
+      <article class="book" data-search="literature stories">
+        <div class="book-cover">📖</div>
+        <div class="book-info">
+          <h3>Stories and Literature</h3>
+          <p>Literature Collection</p>
+          <button onclick="showNotice()">View Book</button>
+        </div>
+      </article>
+
+      <article class="book" data-search="technology digital">
+        <div class="book-cover">💻</div>
+        <div class="book-info">
+          <h3>Understanding Technology</h3>
+          <p>Technology Collection</p>
+          <button onclick="showNotice()">View Book</button>
+        </div>
+      </article>
+    </div>
+    <p id="noResults" style="display:none;color:#777;">No matching sample books found.</p>
+  </section>
+
+  <div class="notice">
+    <strong>Library Preview:</strong> This is the initial dashboard design.
+    Book collections, user accounts, search, and reading features will be
+    connected in the next development stages.
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Kingsville Digital Library | Kingsville Advanced School Inc.
+  <br><br>
+  Knowledge opens possibilities.
+</footer>
+
+<script>
+  function searchBooks() {
+    const query = document.getElementById("bookSearch")
+      .value.toLowerCase().trim();
+
+    const books = document.querySelectorAll(".book");
+    let visibleCount = 0;
+
+    books.forEach(book => {
+      const searchableText =
+        (book.innerText + " " + book.dataset.search).toLowerCase();
+
+      const matches = searchableText.includes(query);
+      book.style.display = matches ? "" : "none";
+
+      if (matches) visibleCount++;
+    });
+
+    document.getElementById("noResults").style.display =
+      visibleCount === 0 ? "block" : "none";
+  }
+
+  document.getElementById("bookSearch").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") searchBooks();
+  });
+
+  function showNotice(event) {
+    if (event) event.preventDefault();
+    alert("This feature will be connected in the next development stage.");
+  }
+</script>
+
+</body>
+</html>
