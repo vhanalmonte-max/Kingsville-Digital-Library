@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#58101F">
+  <meta name="description" content="Kingsville Advanced Schools Digital Library">
+  <title>Kingsville Digital Library</title>
+
+  <style>
+    :root {
+      --maroon: #58101F;
+      --gold: #E8BD55;
+      --white: #FFFFFF;
+      --cream: #FAF8F5;
+      --text: #30272A;
+      --muted: #777078;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--maroon);
+      color: var(--white);
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      background: var(--gold);
+      color: var(--maroon);
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .brand h1 {
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .brand p {
+      font-size: 11px;
+      opacity: .8;
+    }
+
+    .nav-label {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .hero {
+      background: var(--maroon);
+      color: var(--white);
+      padding: 75px 7% 85px;
+      text-align: center;
+    }
+
+    .hero .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 5vw, 55px);
+      line-height: 1.15;
+      max-width: 750px;
+      margin: 0 auto 18px;
+    }
+
+    .hero p {
+      color: #F0E5E6;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 15px;
+    }
+
+    .gold-line {
+      width: 65px;
+      height: 4px;
+      background: var(--gold);
+      margin: 0 auto 25px;
+      border-radius: 5px;
+    }
+
+    .login-button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--maroon);
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .login-button:hover {
+      background: #F2D58C;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+      color: var(--maroon);
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 27px 22px;
+      border: 1px solid #EEE6E4;
+      border-radius: 9px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      color: var(--maroon);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .welcome {
+      margin-top: 55px;
+      background: #F0E8E3;
+      border-left: 5px solid var(--gold);
+      padding: 27px;
+      border-radius: 6px;
+    }
+
+    .welcome h3 {
+      color: var(--maroon);
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #62575B;
+      font-size: 14px;
+    }
+
+    footer {
+      background: var(--maroon);
+      color: #F0E5E6;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      .nav-label {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 6%;
+      }
+
+      main {
+        padding: 40px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      <div>
+        <h1>Kingsville Digital Library</h1>
+        <p>Kingsville Advanced Schools</p>
+      </div>
+    </div>
+
+    <div class="nav-label">INSTITUTIONAL LIBRARY</div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">KNOWLEDGE • LEARNING • DISCOVERY</div>
+    <div class="gold-line"></div>
+
+    <h2>Where Knowledge Opens New Possibilities</h2>
+
+    <p>
+      Explore a growing collection of academic books,
+      learning materials, and educational resources
+      for the Kingsville community.
+    </p>
+
+    <a href="#library-info" class="login-button">
+      Explore the Library
+    </a>
+  </section>
+
+  <main id="library-info">
+
+    <div class="section-heading">
+      <h2>Your Digital Learning Space</h2>
+      <p>A collection designed to support learning, teaching, and discovery.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Digital Collection</h3>
+        <p>Access academic books, references, and educational materials in one place.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔎</div>
+        <h3>Smart Discovery</h3>
+        <p>Find resources by title, author, subject, and category.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3>Online Reading</h3>
+        <p>Read through our digital reading room with convenient reading tools.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3>For the Kingsville Community</h3>
+        <p>A dedicated learning resource for authorized students and faculty.</p>
+      </div>
+
+    </div>
+
+    <div class="welcome">
+      <h3>Welcome to Kingsville Digital Library</h3>
+      <p>
+        Learning does not end inside the classroom.
+        Through this digital library, Kingsville Advanced Schools
+        aims to make quality educational resources more accessible
+        to its academic community.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <strong>Kingsville Digital Library</strong>
+    <p>Kingsville Advanced Schools</p>
+    <p>© 2026. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
