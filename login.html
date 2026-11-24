@@ -78,7 +78,7 @@
       margin-bottom: 25px;
     }
 
-    .welcome .book-icon {
+    .book-icon {
       font-size: 40px;
       margin-bottom: 10px;
     }
@@ -113,6 +113,7 @@
       color: var(--muted);
       font-size: 13px;
       margin-bottom: 25px;
+      line-height: 1.5;
     }
 
     label {
@@ -173,10 +174,6 @@
       gap: 10px;
     }
 
-    .google-button:hover {
-      background: #FAF8F5;
-    }
-
     .divider {
       display: flex;
       align-items: center;
@@ -194,14 +191,15 @@
       background: #E9E2E2;
     }
 
-    .notice {
-      margin-top: 22px;
+    .demo-notice {
+      margin-top: 20px;
       padding: 13px;
-      background: #F8F2E5;
-      border-radius: 6px;
+      background: #FFF7E4;
+      border-left: 4px solid var(--gold);
+      border-radius: 5px;
       color: #705B2D;
       font-size: 12px;
-      text-align: center;
+      line-height: 1.6;
     }
 
     #message {
@@ -307,9 +305,11 @@
 
         <div id="message"></div>
 
-        <div class="notice">
-          Access is limited to authorized students,
-          faculty, and personnel of Kingsville Advanced Schools.
+        <div class="demo-notice">
+          <strong>Development Preview Only</strong><br>
+          Login and Google authentication are not yet connected.
+          The Sign In and Google buttons currently open a public
+          demonstration dashboard. No account is being verified.
         </div>
 
       </div>
@@ -330,23 +330,29 @@
   <script>
     const message = document.getElementById("message");
 
-    function showMessage(text) {
-      message.textContent = text;
-      message.style.display = "block";
-    }
-
     document.getElementById("loginForm").addEventListener("submit", function(event) {
       event.preventDefault();
-      showMessage("Authentication is not yet connected. Please wait for the official library launch.");
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (!email || !password) {
+        message.textContent = "Please enter your email and password.";
+        message.style.display = "block";
+        return;
+      }
+
+      window.location.href = "dashboard.html";
     });
 
     document.getElementById("googleButton").addEventListener("click", function() {
-      showMessage("Google sign-in will be activated after authentication setup.");
+      window.location.href = "dashboard.html";
     });
 
     document.getElementById("forgotLink").addEventListener("click", function(event) {
       event.preventDefault();
-      showMessage("Password recovery will be available once accounts are activated.");
+      message.textContent = "Password recovery will be available once the account system is connected.";
+      message.style.display = "block";
     });
   </script>
 
