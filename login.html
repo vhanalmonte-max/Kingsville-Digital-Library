@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#58101F">
+  <title>Sign In | Kingsville Digital Library</title>
+
+  <style>
+    :root {
+      --maroon: #58101F;
+      --gold: #E8BD55;
+      --cream: #FAF8F5;
+      --text: #30272A;
+      --muted: #777078;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--maroon);
+      padding: 18px 7%;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 43px;
+      height: 43px;
+      background: var(--gold);
+      color: var(--maroon);
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    header h1 {
+      font-size: 18px;
+    }
+
+    header p {
+      font-size: 11px;
+      opacity: .8;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 45px 20px;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .welcome .book-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .welcome h2 {
+      font-family: Georgia, serif;
+      color: var(--maroon);
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .login-card {
+      background: white;
+      padding: 35px;
+      border: 1px solid #EEE6E4;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(50, 20, 25, .06);
+    }
+
+    .login-card h3 {
+      color: var(--maroon);
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #DDD5D5;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 18px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--maroon);
+      box-shadow: 0 0 0 2px rgba(88, 16, 31, .08);
+    }
+
+    .forgot {
+      display: block;
+      text-align: right;
+      color: var(--maroon);
+      font-size: 12px;
+      text-decoration: none;
+      margin-top: -9px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sign-in {
+      background: var(--maroon);
+      color: white;
+    }
+
+    .google-button {
+      background: white;
+      color: var(--text);
+      border: 1px solid #DDD5D5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .google-button:hover {
+      background: #FAF8F5;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #999;
+      font-size: 12px;
+      margin: 22px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #E9E2E2;
+    }
+
+    .notice {
+      margin-top: 22px;
+      padding: 13px;
+      background: #F8F2E5;
+      border-radius: 6px;
+      color: #705B2D;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    #message {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      background: #F8F2E5;
+      color: #705B2D;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 23px;
+      color: var(--maroon);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    footer {
+      background: var(--maroon);
+      color: #F0E5E6;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">K</div>
+    <div>
+      <h1>Kingsville Digital Library</h1>
+      <p>Kingsville Advanced Schools</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="login-container">
+
+      <div class="welcome">
+        <div class="book-icon">📚</div>
+        <h2>Welcome Back!</h2>
+        <p>Your gateway to knowledge and discovery.</p>
+      </div>
+
+      <div class="login-card">
+
+        <h3>Sign in to your account</h3>
+        <p class="subtitle">
+          Use your authorized Kingsville library account.
+        </p>
+
+        <form id="loginForm">
+
+          <label for="email">Institutional Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your institutional email"
+            required
+          >
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          >
+
+          <a href="#" class="forgot" id="forgotLink">
+            Forgot password?
+          </a>
+
+          <button type="submit" class="sign-in">
+            Sign In
+          </button>
+
+        </form>
+
+        <div class="divider">OR</div>
+
+        <button type="button" class="google-button" id="googleButton">
+          <strong>G</strong>
+          Continue with Google
+        </button>
+
+        <div id="message"></div>
+
+        <div class="notice">
+          Access is limited to authorized students,
+          faculty, and personnel of Kingsville Advanced Schools.
+        </div>
+
+      </div>
+
+      <a href="index.html" class="back">
+        ← Back to Library Homepage
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <strong>Kingsville Digital Library</strong>
+    <p>Kingsville Advanced Schools</p>
+    <p>© 2026. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const message = document.getElementById("message");
+
+    function showMessage(text) {
+      message.textContent = text;
+      message.style.display = "block";
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      showMessage("Authentication is not yet connected. Please wait for the official library launch.");
+    });
+
+    document.getElementById("googleButton").addEventListener("click", function() {
+      showMessage("Google sign-in will be activated after authentication setup.");
+    });
+
+    document.getElementById("forgotLink").addEventListener("click", function(event) {
+      event.preventDefault();
+      showMessage("Password recovery will be available once accounts are activated.");
+    });
+  </script>
+
+</body>
+</html>
